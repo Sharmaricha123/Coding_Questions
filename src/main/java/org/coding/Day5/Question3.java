@@ -1,0 +1,31 @@
+package org.coding.Day5;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
+public class Question3 {
+
+    public static void main(String args[])
+    {
+        List<Employee> employees = Arrays.asList(
+                new Employee(1, "Ritik", "IT", 60000),
+                new Employee(2, "Amit", "HR", 45000),
+                new Employee(3, "Neha", "IT", 80000),
+                new Employee(4, "Priya", "Finance", 70000),
+                new Employee(5, "Rahul", "HR", 55000),
+                new Employee(6, "Sneha", "IT", 90000),
+                new Employee(7, "Ankit", "Finance", 50000)
+        );
+
+//        Find employees with lowest salary
+
+        Employee result=employees.stream()
+                        .min(Comparator.comparing(Employee::getSalary))
+                                .get();
+
+        System.out.println(result);
+
+
+    }
+}
